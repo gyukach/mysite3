@@ -1,35 +1,262 @@
-.introduce-page {
-    min-height: 100%;
-}
-
-.introduce-header {
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #2c3e50, #4a69bd);
-    color: white;
-    text-align: center;
+.introduce-container {
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 2rem;
 }
 
-.introduce-header h1 {
-    font-size: 2.5rem;
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.profile-image {
+    flex: 1;
+    max-width: 250px;
+}
+
+.image-placeholder {
+    width: 100%;
+    padding-top: 100%;
+    /* 1:1 비율 유지 */
+    background-color: #ecf0f1;
+    border-radius: 10px;
+}
+
+.profile-info {
+    flex: 2;
+    text-align: left;
+}
+
+.profile-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0px;
+}
+
+.profile-info h2::after {
+    display: none;
+}
+
+.profile-title {
+    color: #3498db;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.profile-description {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+.contact-info {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.contact-info p {
     margin-bottom: 0.5rem;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
+/* Education Section */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
+.education-item {
+    display: flex;
+    gap: 2rem;
+}
+
+.education-period {
+    min-width: 120px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.education-details h3 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    margin-top: 0px;
+}
+
+/* Skills Section */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.skill-name {
+    font-weight: bold;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 5px;
+}
+
+/* Interests Section */
+.interests-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.interest-item {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.interest-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.interest-item p {
+    color: #5d6d7e;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .introduce-header h1 {
-        font-size: 2rem;
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .subtitle {
-        font-size: 1rem;
+    .profile-image {
+        max-width: 200px;
+        margin-bottom: 1.5rem;
     }
+
+    .profile-info {
+        text-align: center;
+    }
+
+    .profile-info h2::after {
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .education-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .education-period {
+        color: #3498db;
+    }
+
+    .interests-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 기존 CSS 코드는 유지하고 아래 다크 모드 관련 스타일 추가 */
+
+/* 다크 모드 스타일 */
+.introduce-container.dark {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.introduce-container.dark h2,
+.introduce-container.dark h3 {
+    color: #ffffff;
+}
+
+.introduce-container.dark .profile-description,
+.introduce-container.dark .education-details p,
+.introduce-container.dark .interest-item p {
+    color: #b0b0b0;
+}
+
+.introduce-container.dark .profile-title {
+    color: #61dafb;
+}
+
+.introduce-container.dark .image-placeholder {
+    background-color: #333;
+}
+
+.introduce-container.dark .education-item,
+.introduce-container.dark .interest-item {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.introduce-container.dark .skill-bar {
+    background-color: #333;
+}
+
+.introduce-container.dark .education-period {
+    color: #61dafb;
+}
+
+.introduce-container.dark .contact-info {
+    border-top: 1px solid #333;
+}
+
+/* 테마 전환 버튼 */
+.theme-toggle {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.theme-toggle button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.introduce-container.dark .theme-toggle button {
+    background-color: #333;
+    color: #e0e0e0;
 }
